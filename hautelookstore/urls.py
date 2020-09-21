@@ -19,7 +19,6 @@ from django.conf.urls.static import static
 
 from hautelookstore import settings
 
-
 urlpatterns = [
     path('', include('mainapp.urls', namespace='main')),
     path('auth/', include('authapp.urls', namespace='auth')),
