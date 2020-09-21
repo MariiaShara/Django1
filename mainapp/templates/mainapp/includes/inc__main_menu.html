@@ -1,0 +1,70 @@
+{% load static %}
+
+<div class="header clearfix">
+    <a href="{% url 'main:index' %}">
+        <img src="{% static 'img/logo.png' %}" alt="logo">
+    </a>
+    <ul class="menu">
+        <li class="menu-list">
+            <a href="{% url 'main:index' %}"
+               class="menu-link {% if request.resolver_match.url_name == 'index' %}menu-link-active{% endif %}">
+                home
+            </a>
+        </li>
+        <li class="menu-list">
+            <a href="{% url 'main:products' %}"
+               class="menu-link {% if request.resolver_match.url_name == 'products' or request.resolver_match.url_name == 'catalogue' or request.resolver_match.url_name == 'product' %}menu-link-active{% endif %}">
+                clothing
+            </a>
+        </li>
+        <li class="menu-list">
+            <a href="{% url 'main:contacts' %}"
+               class="menu-link {% if request.resolver_match.url_name == 'contacts' %}menu-link-active{% endif %}">
+                contacts
+            </a>
+        </li>
+        {% if user.is_superuser %}
+            <li class="menu-list">
+                <a href="{% url 'my_admin:index' %}"
+                    class="menu-link">
+                    Admin
+                </a>
+            </li>
+        {% endif %}
+        {% if user.is_authenticated %}
+            <li class="menu-list">
+                <a href="{% url 'auth:user_profile' %}"
+                    class="menu-link">
+                    {{ user.first_name|default:'User' }}
+                </a>
+            </li>
+            <li class="menu-list">
+                <a href="{% url 'auth:logout' %}"
+                    class="menu-link">
+                    Sign out
+                </a>
+            </li>
+        {% else %}
+            <li class="menu-list">
+                <a href="{% url 'auth:login' %}"
+                    class="menu-link">
+                    Login
+                </a>
+            </li>
+        {% endif %}
+        <li class="menu-list">
+            <a href="#" class="menu-link search">
+                <i class="fas fa-search fa-lg"></i>
+            </a>
+        </li>
+        {% if user.is_authenticated %}
+            <li class="menu-list">
+                <a href="{% url 'shopcart:index' %}" class="menu-link shopping-cart">
+                    <i class="fas fa-shopping-cart fa-lg"></i>
+                    <div class="quantity">{{ user.bag_ttl_quantity|floatformat:0 }} items</div>
+                    <span>{{ user.bag_ttl_cost|floatformat:0 }} USD</span>
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+</div>

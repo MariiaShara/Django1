@@ -1,0 +1,58 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+
+{% block content %}
+    <a href="{% url 'my_admin:category_add' %}"
+       class="form-control last">
+        Add category
+    </a>
+    <div class="objects">
+        {% for object in object_list %}
+            <div class="object_record">
+                <div class="object object_name">
+                    {{ object.name|title }}
+                </div>
+                <div class="object object_products">
+                    <a href="{% url 'my_admin:category_products' object.pk %}">
+                        Products
+                    </a>
+                </div>
+                <div class="object object_edit">
+                    <a href="{% url 'my_admin:category_edit' object.pk %}">
+                        <i class="fas fa-edit fa-lg"></i>
+                    </a>
+                </div>
+                <div class="object object_delete">
+                    {% if object.is_active %}
+                        <a href="{% url 'my_admin:category_delete' object.pk %}">
+                            <i class="fas fa-trash-alt fa-lg"></i>
+                        </a>
+                    {% else %}
+                        <a href="{% url 'my_admin:category_edit' object.pk %}">
+                            <i class="fas fa-ban fa-lg"></i>
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="object object_description">
+                    {{ object.description }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">
+                    <i class="fas fa-angle-left fa-lg"></i></a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">
+                    <i class="fas fa-angle-right fa-lg"></i></a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock %}

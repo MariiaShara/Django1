@@ -1,0 +1,52 @@
+[
+    {
+        "name": "Marley Dress",
+        "image": "clothings_images/dress7.png",
+        "short_descript": "sleeveless maxi dress",
+        "description": "Make a sweet yet striking statement in this enchanting sleeveless maxi covered in a swirling paisley print. Waistline cutouts and a flowy, layered-ruffle hem add to the showstopping look.",
+        "designer_info": "Ramy Sharp landed in the world of womenswear design after a lifetime of acting as casual fashion advisor to friends. Her timeless aesthetic blends all the components of ultimate femininity: elegance, simplicity, and sexy sophistication. Armed with this ideal and a desire to bring beautiful clothes to women of all shapes, Sharp launched her eponymous line. With sleek, silky designs that exude chic allure, Ramy Brook apparel effortlessly accentuates the natural beauty of every woman.",
+        "price": "295",
+        "quantity": "8",
+        "category": "dresses"
+    },
+	{
+        "name": "LBD Dress",
+        "image": "clothings_images/dress8.png",
+        "short_descript": "pleated midi dress",
+        "description": "Be the modern Grecian goddess in this pleated LBD with a blousy halter-style bodice, a smocked waist and curved hem creating graceful fluttering movement.",
+        "designer_info": "Ramy Sharp landed in the world of womenswear design after a lifetime of acting as casual fashion advisor to friends. Her timeless aesthetic blends all the components of ultimate femininity: elegance, simplicity, and sexy sophistication. Armed with this ideal and a desire to bring beautiful clothes to women of all shapes, Sharp launched her eponymous line. With sleek, silky designs that exude chic allure, Ramy Brook apparel effortlessly accentuates the natural beauty of every woman.",
+        "price": "279",
+        "quantity": "5",
+        "category": "dresses"
+    },
+    {
+        "name": "Paris Dress",
+        "image": "clothings_images/dress6.png",
+        "short_descript": "sleeveless maxi dress",
+        "description": "Featuring a comfortable smocked waist, a high-neck blouson bodice and gathered skirt, this maxi dress is rich with date-night charm.",
+        "designer_info": "Ramy Sharp landed in the world of womenswear design after a lifetime of acting as casual fashion advisor to friends. Her timeless aesthetic blends all the components of ultimate femininity: elegance, simplicity, and sexy sophistication. Armed with this ideal and a desire to bring beautiful clothes to women of all shapes, Sharp launched her eponymous line. With sleek, silky designs that exude chic allure, Ramy Brook apparel effortlessly accentuates the natural beauty of every woman.",
+        "price": "345",
+        "quantity": "10",
+        "category": "dresses"
+    },
+    {
+        "name": "Julii top",
+        "image": "clothings_images/top4.png",
+        "short_descript": "sleevless top",
+        "description": "Our Julii top is a sophisticated wardrobe staple. All-over flounce, peplum hem, and blouson sleeves cascade from the silhouette classic mock neck.",
+        "designer_info": "Ramy Sharp landed in the world of womenswear design after a lifetime of acting as casual fashion advisor to friends. Her timeless aesthetic blends all the components of ultimate femininity: elegance, simplicity, and sexy sophistication. Armed with this ideal and a desire to bring beautiful clothes to women of all shapes, Sharp launched her eponymous line. With sleek, silky designs that exude chic allure, Ramy Brook apparel effortlessly accentuates the natural beauty of every woman.",
+        "price": "199",
+        "quantity": "4",
+        "category": "tops"
+    },
+    {
+        "name": "Lori top",
+        "image": "clothings_images/top1.png",
+        "short_descript": "sleeveless top with high neckline",
+        "description": "Stunning, no matter how you wear it. Our ultraversatile Lori top features a dramatic high neckline that makes it glam enough for parties, but easy enough to wear everyday.",
+        "designer_info": "Ramy Sharp landed in the world of womenswear design after a lifetime of acting as casual fashion advisor to friends. Her timeless aesthetic blends all the components of ultimate femininity: elegance, simplicity, and sexy sophistication. Armed with this ideal and a desire to bring beautiful clothes to women of all shapes, Sharp launched her eponymous line. With sleek, silky designs that exude chic allure, Ramy Brook apparel effortlessly accentuates the natural beauty of every woman.",
+        "price": "135",
+        "quantity": "12",
+        "category": "tops"
+    }
+]

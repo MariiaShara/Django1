@@ -1,0 +1,38 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block content %}
+    {% include 'mainapp/includes/inc__main_menu.html' %}
+    {% include 'mainapp/includes/inc__catalog_menu.html' %}
+
+    <div class="product-details padding-site clearfix">
+            <div class="product-details-left">
+                <img src="/media/{{ hot_product.image }}" alt="{{ hot_product.name }}" class="product-img">
+            </div>
+            <div class="product-details-right">
+                <h3 class="pr-h3">{{ hot_product.name }}</h3>
+                <h4 class="pr-h4">Hot Deal</h4>
+                <span class="pr-price clearfix">
+                    <span class="pr-price1">$</span><span class="pr-price2">{{ hot_product.price }}</span>
+                </span>
+                <a href="{% url 'shopcart:add' hot_product.pk %}" class="pr-button">Add to cart</a>
+                <p class="pr-description">{{ hot_product.short_descript }}</p>
+                <h4 class="pr-h4">Details</h4>
+                <p class="pr-description">{{ hot_product.description }}</p>
+                <h4 class="pr-h4">About the Designer</h4>
+                <p class="pr-description">{{ hot_product.designer_info }}</p>
+            </div>
+    </div>
+    <div class="trending padding-site clearfix">
+            <div class="trending-title clearfix">
+                <p class="trending-products-title">Related Products</p>
+                <a href="#" class="explore">explore all&nbsp;</a>
+            </div>
+            <ul class="trending-products">
+                {% for product in related_products %}
+                    {% include 'mainapp/includes/inc__product_in_list.html' %}
+                {% endfor %}
+            </ul>
+        </div>
+    {% include 'mainapp/includes/inc__afterparty.html' %}
+{% endblock %}

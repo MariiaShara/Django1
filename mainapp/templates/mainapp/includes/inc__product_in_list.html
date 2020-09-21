@@ -1,0 +1,13 @@
+{% load static %}
+{% load my_tags %}
+
+<li class="trending-product-list">
+    <img class="trending" src="{{ product.image|media_folder_products }}" alt="{{ product.name }}">
+    <a class="hover" href="{% url 'mainapp:product' product.pk %}">
+        <p class="but">
+            <img src="{% static 'img/arrow2.svg' %}" alt="arrow">
+        </p>
+        <h3>{{ product.name }}</h3>
+        <p>{{ product.short_descript }}</p>
+    </a>
+</li>

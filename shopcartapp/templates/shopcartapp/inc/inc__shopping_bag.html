@@ -1,0 +1,53 @@
+{% if cart %}
+    <table class="shopping_bag">
+        <thead>
+        <tr>
+            <th>Image</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Unit price</th>
+            <th>Remove</th>
+            <th>Price</th>
+
+        </tr>
+        </thead>
+        {% for item in cart %}
+            <tr class="shopping_bag_record">
+                <td class="shopping_bag_column">
+                    <a href="{% url 'mainapp:product' item.product.pk %}">
+                        <img class="shopping_bag_img" src="/media/{{ item.product.image }}" alt="{{ item.product.name }}" width="120px" style="border-radius:10px">
+                    </a>
+                </td>
+                <td class="shopping_bag_column">
+                    <a href="{% url 'mainapp:product' item.product.pk %}">
+                        {{ item.product.name }}
+                    </a>
+                </td>
+                <td class="shopping_bag_column">
+                    <input type="number" name="{{ item.pk }}" min="0" max="{{ item.product.quantity }}"
+                           value="{{ item.quantity }}">
+                </td>
+                <td class="shopping_bag_column">
+                    ${{ item.product.price }}
+                </td>
+                <td class="shopping_bag_column product_delete">
+                    <a href="{% url 'shopcart:delete' item.pk %}">
+                        <i class="fas fa-trash-alt fa-lg"></i>
+                    </a>
+                </td>
+                <td class="shopping_bag_column">
+                    ${{ item.product_ttl_price }}
+                </td>
+            </tr>
+        {% endfor %}
+        <tr class="total">
+            <td class="ttl">Total</td>
+            <td class="ttl" colspan="2"></td>
+            <td class="ttl"><strong>{{ user.bag_ttl_quantity }}</strong> items</td>
+            <td class="ttl" colspan="1"></td>
+            <td class="ttl">$<strong>{{ user.bag_ttl_price }}</strong></td>
+        </tr>
+    </table>
+{% else %}
+    <h2>Your shopping bag is empty</h2>
+{% endif %}

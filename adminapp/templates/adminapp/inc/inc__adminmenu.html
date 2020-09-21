@@ -1,0 +1,21 @@
+{% load static %}
+
+<div class="header-tab-control clearfix">
+    <ul class="catalog-tab">
+        <li class="catalog-list">
+            <a href="{% url 'my_admin:index' %}"
+               class="catalog-link {% if request.resolver_match.url_name == 'index' or request.resolver_match.url_name == 'add_user' or request.resolver_match.url_name == 'edit_user' or request.resolver_match.url_name == 'delete_user' %}catalog-link-active{% endif %}">
+                Users
+            </a>
+        </li>
+        <li class="catalog-list">
+            <a href="{% url 'my_admin:categories_read' %}"
+               class="catalog-link {% if request.resolver_match.kwargs.pk == '0' %}catalog-link-active{% endif %}">
+                categories
+                {% if category %}:
+                    {{ category.name }}
+                {% endif %}
+            </a>
+        </li>
+    </ul>
+</div>

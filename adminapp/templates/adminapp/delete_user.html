@@ -1,0 +1,50 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="objects">
+        <div class="object_record">
+                <div class="object object-img">
+                    <img src="/media/{{ object.avatar|default:'users_avatars/default_avatar.png' }}" alt="{{ object.username }}">
+                </div>
+                <div class="object object_role">
+                    <p><strong>{{ object.username }}</strong></p>
+                    {% if object.is_superuser %}administrator
+                    {% elif object.is_staff %}staff
+                    {% else %}user
+                    {% endif %}
+                </div>
+                <div class="object object_name">
+                    <p><b>name:</b></p>
+                    <p>
+                        {% if object.first_name %}
+                            {{ object.first_name|title }}
+                            {% if object.last_name %}
+                                {{ object.last_name|title }}
+                            {% endif %}
+                        {% endif %}
+                     </p>
+                </div>
+                <div class="object object_age">
+                    <b>age:</b><br>{{ object.age }}
+                </div>
+                <div class="object object_email">
+                    <b>email:</b><br>{{ object.email }}
+                </div>
+                <div class="object object_lastlogin">
+                    <b>logged:</b><br>{{ object.last_login }}
+                </div>
+            </div>
+    </div>
+    <div class="login padding-site clearfix">
+        <form class="login-form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="form-control" value="Confirm delete">
+            <a href="{% url 'my_admin:index' %}"
+                class="form-control last">
+                 Cancel
+            </a>
+        </form>
+    </div>
+{% endblock %}

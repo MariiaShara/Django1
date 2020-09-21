@@ -1,0 +1,19 @@
+{% extends 'authapp/base.html' %}
+
+{% block container %}
+    <div class="profile padding-site clearfix">
+        <a href= "{% url href %}"
+           class="form-control">
+            {{ a_btn_content|default:'home'|title }}
+        </a>
+        <form class="profile-form" method="post" enctype="multipart/form-data">
+            <h1>Your Profile </h1>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="form-control" value="Save">
+        </form>
+        <div class="user_avatar">
+            <img src="/media/{{ user.avatar }}" alt="avatar">
+        </div>
+    </div>
+{% endblock %}

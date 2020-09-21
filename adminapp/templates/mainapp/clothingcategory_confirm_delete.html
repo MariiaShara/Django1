@@ -1,0 +1,27 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="objects">
+        <div class="object_record">
+                <div class="object object_name">
+                    {{ object.name|title }}
+                </div>
+                <div class="object object_description">
+                    {{ object.description }}
+                </div>
+            </div>
+    </div>
+    <div class="login padding-site clearfix">
+        <form class="login-form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="form-control" value="Confirm delete">
+            <a href="{% url 'my_admin:categories_read' %}"
+                class="form-control last">
+                 Cancel
+            </a>
+        </form>
+
+    </div>
+{% endblock %}

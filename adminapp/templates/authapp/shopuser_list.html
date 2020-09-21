@@ -1,0 +1,78 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+{% load my_tags %}
+
+{% block content %}
+    <a href="{% url 'my_admin:user_add' %}"
+       class="form-control last">
+        Add user
+    </a>
+    <div class="objects">
+        {% for object in object_list %}
+            <div class="object_record">
+                <div class="object object-img">
+                    <img src="{{ object.avatar|media_folder_users }}" alt="{{ object.username }}">
+                </div>
+                <div class="object object_role">
+                    <p><strong>{{ object.username }}</strong></p>
+                    {% if object.is_superuser %}administrator
+                    {% elif object.is_staff %}staff
+                    {% else %}user
+                    {% endif %}
+                </div>
+                <div class="object object_name">
+                    <p><b>name:</b></p>
+                    <p>
+                        {% if object.first_name %}
+                            {{ object.first_name|title }}
+                            {% if object.last_name %}
+                                {{ object.last_name|title }}
+                            {% endif %}
+                        {% endif %}
+                     </p>
+                </div>
+                <div class="object object_age">
+                    <b>age:</b><br>{{ object.age }}
+                </div>
+                <div class="object object_email">
+                    <b>email:</b><br>{{ object.email }}
+                </div>
+                <div class="object object_lastlogin">
+                    <b>logged:</b><br>{{ object.last_login }}
+                </div>
+                <div class="object object_edit">
+                    <a href="{% url 'my_admin:user_edit' object.pk %}">
+                        <i class="fas fa-edit fa-lg"></i>
+                    </a>
+                </div>
+                <div class="object object_delete">
+                    {% if object.is_active %}
+                        <a href="{% url 'my_admin:user_delete' object.pk %}">
+                            <i class="fas fa-trash-alt fa-lg"></i>
+                        </a>
+                    {% else %}
+                        <a href="{% url 'my_admin:user_edit' object.pk %}">
+                            <i class="fas fa-ban fa-lg"></i>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page={{ page_obj.previous_page_number }}">
+                    <i class="fas fa-angle-left fa-lg"></i></a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">
+                    <i class="fas fa-angle-right fa-lg"></i></a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock %}

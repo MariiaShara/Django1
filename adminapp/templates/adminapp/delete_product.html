@@ -1,0 +1,38 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <div class="object_record">
+        <div class="object object-img">
+            <img src="/media/{{ object.image|default:'products_images/default.jpg' }}" alt="{{ object.name }}">
+        </div>
+        <div class="object object_name">
+            {{ object.name|title }}
+        </div>
+        <div class="object object_description">
+            {{ object.short_descript|capfirst }}
+        </div>
+        <div class="object object_details">
+            <a href="#">
+                Details
+            </a>
+        </div>
+        <div class="summary">
+            <p><b>price: </b>${{ object.price }}</p>
+            <p><b>quantity: </b>{{ object.quantity }}</p>
+        </div>
+    </div>
+    <div class="login padding-site clearfix">
+        <form class="login-form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="form-control" value="Confirm delete">
+            <a href="{% url 'my_admin:category_products' category.pk %}"
+                class="form-control last">
+                 Cancel
+            </a>
+        </form>
+
+    </div>
+{% endblock %}

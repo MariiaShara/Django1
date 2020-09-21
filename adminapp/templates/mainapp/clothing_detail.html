@@ -1,0 +1,45 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+
+
+{% block menu %}
+    <a href="{% url 'my_admin:category_products' object.category_id %}" class="form-control last">
+        Back to {{ object.category.name }}
+    </a>
+{% endblock %}
+
+
+{% block content %}
+    <div class="product-details padding-site clearfix">
+            <div class="product-details-left">
+                <img src="/media/{{ object.image }}" alt="{{ object.name }}" class="product-img">
+            </div>
+            <div class="product-details-right">
+                <h3 class="pr-h3">{{ object.name }}</h3>
+                <h4 class="pr-h4">Ramy Brook</h4>
+                <span class="pr-price clearfix">
+                    <span class="pr-price1">$</span><span class="pr-price2">{{ object.price }}</span>
+                </span>
+                <p class="pr-description">{{ object.short_descript }}</p>
+                <h4 class="pr-h4">Details</h4>
+                <p class="pr-description">{{ object.description }}</p>
+                <h4 class="pr-h4">About the Designer</h4>
+                <p class="pr-description">{{ object.designer_info }}</p>
+                <div class="product-edit-menu">
+                    <a href="{% url 'my_admin:product_edit' object.pk %}">
+                        <i class="fas fa-edit fa-lg"></i>
+                    </a>
+                    {% if object.is_active %}
+                        <a href="{% url 'my_admin:product_delete' object.pk %}">
+                            <i class="fas fa-trash-alt fa-lg"></i>
+                        </a>
+                    {% else %}
+                        <a href="{% url 'my_admin:product_edit' object.pk %}">
+                            <i class="fas fa-ban fa-lg"></i>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+    </div>
+
+{% endblock %}

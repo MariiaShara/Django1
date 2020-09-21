@@ -1,0 +1,26 @@
+[
+    {
+        "name": "all",
+        "description": "all types  of  clothings"
+    },
+    {
+        "name": "dresses",
+        "description": "cocktail, midi and maxi dresses"
+    },
+    {
+        "name": "tops",
+        "description": "tops with and without sleeves"
+    },
+    {
+        "name": "bottoms",
+        "description": "jeans, pants, capries, shorts"
+    },
+    {
+        "name": "jackets",
+        "description": "jackets, coats and  blazers"
+    },
+    {
+        "name": "jumpsuits",
+        "description": "jumpsuits"
+    }
+]

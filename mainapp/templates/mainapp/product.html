@@ -1,0 +1,26 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block content %}
+    {% include 'mainapp/includes/inc__main_menu.html' %}
+    {% include 'mainapp/includes/inc__catalog_menu.html' %}
+    <div class="product-details padding-site clearfix">
+            <div class="product-details-left">
+                <img src="/media/{{ product.image }}" alt="{{ hot_product.name }}" class="product-img">
+            </div>
+            <div class="product-details-right">
+                <h3 class="pr-h3">{{ product.name }}</h3>
+                <h4 class="pr-h4">Ramy Brook</h4>
+                <span class="pr-price clearfix">
+                    <span class="pr-price1">$</span><span class="pr-price2">{{ product.price }}</span>
+                </span>
+                <a href="{% url 'shopcart:add' product.pk %}" class="pr-button">Add to cart</a>
+                <p class="pr-description">{{ product.short_descript }}</p>
+                <h4 class="pr-h4">Details</h4>
+                <p class="pr-description">{{ product.description }}</p>
+                <h4 class="pr-h4">About the Designer</h4>
+                <p class="pr-description">{{ product.designer_info }}</p>
+            </div>
+    </div>
+
+{% endblock %}

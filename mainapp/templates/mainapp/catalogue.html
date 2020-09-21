@@ -1,0 +1,35 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block content %}
+    {% include 'mainapp/includes/inc__main_menu.html' %}
+    {% include 'mainapp/includes/inc__catalog_menu.html' %}
+
+    <div class="trending padding-site clearfix">
+        <div class="trending-title clearfix">
+            <p class="trending-products-title">{{ category.name|capfirst }}</p>
+            <a href="#" class="explore">explore all&nbsp;</a>
+        </div>
+        <div class="paginator">
+            {% if products.has_previous %}
+                <a href="{% url 'main:catalogue_page' pk=category.pk page=products.previous_page_number %}">
+                   <i class="fas fa-angle-left fa-lg"></i>
+                </a>
+            {% endif %}
+            <span class="current">Page {{ products.number }} from {{ products.paginator.num_pages }}</span>
+            {% if products.has_next %}
+                <a href="{% url 'main:catalogue_page' pk=category.pk page=products.next_page_number %}">
+                   <i class="fas fa-angle-right fa-lg"></i>
+                </a>
+            {% endif %}
+        </div>
+        </div>
+        <ul class="trending-products">
+            {% for product in products %}
+                {% include 'mainapp/includes/inc__product_in_list.html' %}
+            {% endfor %}
+        </ul>
+    </div>
+
+    {% include 'mainapp/includes/inc__afterparty.html' %}
+{% endblock %}

@@ -1,0 +1,18 @@
+<div class="header-tab-control">
+    <ul class="catalog-tab">
+        <li class="catalog-list">
+                <a href="{% url 'main:catalogue' pk=0 %}"
+                   class="catalog-link {% if request.resolver_match.kwargs.pk == '0' %}catalog-link-active{% endif %}">
+                    ALL
+                </a>
+            </li>
+        {% for category in catalogue_menu %}
+            <li class="catalog-list">
+                <a href="{% url 'main:catalogue' pk=category.pk %}"
+                   class="catalog-link {% if request.resolver_match.kwargs.pk|add:0 == category.pk %}catalog-link-active{% endif %}">
+                    {{ category.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

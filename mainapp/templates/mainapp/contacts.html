@@ -1,0 +1,31 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block content %}
+    {% include 'mainapp/includes/inc__main_menu.html' %}
+    <div class="header-tab-control clearfix">
+        <h1 class="header-h1">Contact Us</h1>
+    </div>
+    {% if locations %}
+        <div class="locations padding-site clearfix">
+            {% for item in locations %}
+                <div class="contacts">
+                    <img class="contacts-img" src="{% static 'img/pointer.png' %}" alt="pointer">
+                    <h3 class="contacts-h3">{{ item.state }}</h3>
+                    <div class="contacts-text">
+                        <h4 class="contacts-text-h4">Phone:</h4>
+                        <p  class="contacts-text-p1">{{ item.phone }}</p>
+                        <h4 class="contacts-text-h4">Email:</h4>
+                        <p  class="contacts-text-p1">{{ item.email }}</p>
+                        <h4  class="contacts-text-h4">Address:</h4>
+                        <p  class="contacts-text-p2">{{ item.address }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <h4>No data</h4>
+    {% endif %}
+
+    {% include 'mainapp/includes/inc__mobileapp.html' %}
+{% endblock %}

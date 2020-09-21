@@ -1,0 +1,18 @@
+{% extends 'authapp/base.html' %}
+
+{% block container %}
+    <div class="login padding-site clearfix">
+        <a href= "{% url href %}"
+           class="form-control">
+            {{ a_btn_content|default:'home'|title }}
+        </a>
+        <form class="login-form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% if next %}
+                <input type="hidden" name="next" value="{{ next }}">
+            {% endif %}
+            {{ form.as_p }}
+            <input type="submit" class="form-control" value="Submit">
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,86 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="slider padding-site">
+            {% include 'mainapp/includes/inc__main_menu.html' %}
+            <div class="slider-text">
+                <p class="slider-trending">Introducing HauteLook</p>
+                <h2 class="slider-h2">sunglasses</h2>
+                <p class="slider-content">Meet our new shades that will up your fabulous this summer.</p>
+                <a href="#" class="button">Order Us</a>
+            </div>
+            <div class="pagination">
+                <a href="#" class="circle"></a>
+                <a href="#" class="circle circle-active"></a>
+                <a href="#" class="circle"></a>
+            </div>
+        </div>
+    <div class="featured padding-site">
+        <div class="featured-tab-controll clearfix">
+                <ul class="tab-controll">
+                    <li class="tab-controll-list">
+                        <a href="#" class="tab-controll-link-active">
+                            Featured
+                        </a>
+                    </li>
+                    <li class="tab-controll-list">
+                        <a href="#" class="tab-controll-link">
+                            New
+                        </a>
+                    </li>
+                </ul>
+                <a href="#" class="explore">
+                    EXPLORE ALL
+                </a>
+            </div>
+            <ul class="featured-product">
+                {% for product in featured_products %}
+                    {% include 'mainapp/includes/inc__product_in_list.html' %}
+                {% endfor %}
+            </ul>
+        </div>
+    <div class="hot-deals padding-site clearfix">
+            <div class="hot-deals-text">
+                <p class="hot-deal">welcome to</p>
+                <h2 class="hot-deals-h2">our fabulous world</h2>
+                <p class="hot-deals-content">Shop on-trend, easy-to-wear essentials crafted from luxe fabrics in vibrant colors for everyday looks that will turn heads from AM to PM.</p>
+                <a href="#" class="button">Learn more</a>
+            </div>
+            <div class="pagination">
+                <a href="" class="circle"></a>
+                <a href="" class="circle circle-active"></a>
+                <a href="" class="circle"></a>
+            </div>
+        </div>
+    <div class="trending padding-site clearfix">
+        <div class="trending-title clearfix">
+                <p class="trending-products-title">Trending</p>
+                <a href="#" class="explore">explore all</a>
+            </div>
+            <ul class="trending-products">
+                {% for product in trending_products %}
+                    {% include 'mainapp/includes/inc__product_in_list.html' %}
+                {% endfor %}
+            </ul>
+        </div>
+    {% include 'mainapp/includes/inc__afterparty.html' %}
+    <div class="excl-products padding-site clearfix">
+        <div class="excl-products-left clearfix">
+                <div class="excl-text">
+                    <p class="excl">Online exclusive</p>
+                    <p class="excl-h2">70% off new markdowns!</p>
+                    <p class="excl-content">Snag the best styles before they're gone</p>
+                    <a href="#" class="button">Shop sale</a>
+                </div>
+            </div>
+        <div class="excl-products-right">
+            <ul class="excl-product">
+                {% for product in excl_products %}
+                    {% include 'mainapp/includes/inc__product_in_list.html' %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% include 'mainapp/includes/inc__mobileapp.html' %}
+{% endblock %}

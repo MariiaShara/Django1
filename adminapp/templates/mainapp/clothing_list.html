@@ -1,0 +1,50 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+{% load my_tags %}
+
+{% block content %}
+    <a href="{% url 'my_admin:product_add' category.pk %}"
+       class="form-control last">
+        Add product
+    </a>
+    <div class="objects">
+        {% for object in object_list %}
+            <div class="object_record">
+                <div class="object object-img">
+                    <img src="{{ object.image|media_folder_products }}" alt="{{ object.name }}">
+                </div>
+                <div class="object object_name">
+                    {{ object.name|title }}
+                </div>
+                <div class="object object_description">
+                    {{ object.short_descript|capfirst }}
+                </div>
+                <div class="object object_details">
+                    <a href="{% url 'my_admin:product_detail' object.pk %}">
+                        Details
+                    </a>
+                </div>
+                <div class="object object_edit">
+                    <a href="{% url 'my_admin:product_edit' object.pk %}">
+                        <i class="fas fa-edit fa-lg"></i>
+                    </a>
+                </div>
+                <div class="object object_delete">
+                    {% if object.is_active %}
+                        <a href="{% url 'my_admin:product_delete' object.pk %}">
+                            <i class="fas fa-trash-alt fa-lg"></i>
+                        </a>
+                    {% else %}
+                        <a href="{% url 'my_admin:product_edit' object.pk %}">
+                            <i class="fas fa-ban fa-lg"></i>
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="summary">
+                    <p><b>price: </b>${{ object.price }}</p>
+                    <p><b>quantity: </b>{{ object.quantity }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

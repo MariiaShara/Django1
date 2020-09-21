@@ -1,0 +1,12 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: maria1 activation
+From: django@geekshop.local
+To: maria1@example.com
+Date: Sun, 20 Sep 2020 19:40:45 -0000
+Message-ID: <160063084515.34832.4123039805983661258@DESKTOP-FC7SR80>
+
+To activate account of maria1 athttp://localhost:8000 follow the link: 
+http://localhost:8000/auth/user/verify/maria1@example.com/bb026689cd19b0b59c5b1e8b9bc91b9c3310359b/
+-------------------------------------------------------------------------------

@@ -1,0 +1,16 @@
+{% extends 'adminapp/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="login padding-site clearfix">
+        <form class="login-form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="form-control" value="Save">
+            <a href="{% url 'my_admin:categories_read' %}"
+                class="form-control last">
+                 Back to categories
+            </a>
+        </form>
+    </div>
+{% endblock %}
